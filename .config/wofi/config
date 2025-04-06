@@ -1,0 +1,10 @@
+width=800
+height=500
+allow_images=true
+key_expand=Tab
+key_down=Shift-J
+key_up=Shift-K
+key_right=Shift-L
+key_left=Shift-H
+prompt=
+insensitive=true
