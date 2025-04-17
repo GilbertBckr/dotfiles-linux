@@ -216,7 +216,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command while echo "$(date +'%Y-%m-%d %X') $(cat /sys/class/power_supply/BAT0/capacity)%"; do sleep 1; done
 
     colors {
         statusline #ffffff
@@ -224,6 +224,10 @@ bar {
         inactive_workspace #323232 #323232 #999999
     }
 }
+
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 gaps inner 8
 gaps outer 2
